@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <style>
+    body {
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    input[type="radio"] {
+      accent-color: red;
+    }
+  </style>
+</head>
+
+<body>
+  <form action="/foo.bar">
+    <p>Which is your favourite branch in Engineer?</p>
+    <input type="radio" id="cse" name="type" value="cse">
+    <label for="cse">Cse</label><br>
+    <input type="radio" id="mechanical" name="type" value="mechanical">
+    <label for="mechanical">Mechanical</label><br>
+    <input type="radio" id="electrical" name="type" value="electrical">
+    <label for="electrical">Electrical</label>
+  </form>
+</body>
+
+</html>
