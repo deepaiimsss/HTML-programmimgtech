@@ -2,6 +2,21 @@
 <html>
 <head>
 <style>
+body {
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: black;
+    overflow: hidden;
+}
+.container {
+    font-size: 10px;
+    width: 40em;
+    height: 40em;
+    position: relative;
+}
 .moon { 
   position: absolute;
   top:0;
@@ -17,41 +32,41 @@
   box-shadow: 0px 0px 40px 15px white;
   z-index:1;
 }
-.stars, .twinkl {
-  position:absolute;
-  top:0;
-  left:0;
-  right:0;
-  bottom:0;
-  width:100%;
-  height:100%;
-  display:block;
+.star {
+    position: absolute;
+    background-color: white;
+    border-radius: 50%;
 }
-.stars {
-  background:#000 url(http://www.script-tutorials.com/demos/360/images/stars.png) repeat top center;
-  z-index:0;
-}
-.twinkl{
-  background:transparent url(http://www.script-tutorials.com/demos/360/images/twinkling.png) repeat top center;
-  z-index:0;
-
-  -moz-animation:move-twink-back 200s linear infinite;
-  -ms-animation:move-twink-back 200s linear infinite;
-  -o-animation:move-twink-back 200s linear infinite;
-  -webkit-animation:move-twink-back 200s linear infinite;
-  animation:move-twink-back 200s linear infinite;
-}
-@keyframes move-twink-back {
-    from {background-position:0 0;}
-    to {background-position:-10000px 5000px;}
+.planet-name {
+    display: none;
+    position: absolute;
+    color: white;
+    font-size: 1.2em;
 }
 </style>
 </head>
 <body>
-  <div>
-  <div class="stars"></div>
-  <div class="moon"></div>
-      <div class="twinkl"></div>
-</div>
+  <div class="container">
+      <div class="moon">
+        <div class="planet-name" data-name="Moon">Moon</div>
+      </div>
+    </div>
+  <script>
+    function createStars() {
+      const container = document.querySelector('body');
+      for (let i = 0; i < 1000; i++) { // Increase the number of stars to 1000
+        const star = document.createElement('div');
+        star.className = 'star';
+        star.style.width = '.1px';
+        star.style.height = '.1px';
+        star.style.top = Math.random() * 100 + '%';
+        star.style.left = Math.random() * 100 + '%';
+        container.appendChild(star);
+      }
+    }
+    createStars();
+  </script>
 </body>
+
 </html>
+
